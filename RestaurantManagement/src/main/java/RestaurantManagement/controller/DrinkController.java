@@ -54,8 +54,8 @@ public class DrinkController {
     }
 
 
-    @DeleteMapping("/deleteBuss")
-    public DrinkDto deleteBillsById(@Validated @RequestParam(name = "busId") Integer id) {
+    @DeleteMapping("/deleteDrink")
+    public DrinkDto deleteBillsById(@Validated @RequestParam(name = "drinkId") Integer id) {
         return service.deleteDrinkById(id);
     }
 
