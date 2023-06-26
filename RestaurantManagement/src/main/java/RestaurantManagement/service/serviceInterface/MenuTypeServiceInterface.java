@@ -8,10 +8,10 @@ public interface MenuTypeServiceInterface {
 
 
     List<MenuTypeDto> getAllBus();
-    MenuTypeDto getBussById(Integer id);
-    MenuTypeDto saveBuss(MenuTypeDto body);
-    MenuTypeDto updateBuss1(MenuTypeDto body);
-    MenuTypeDto updateBuss2(MenuTypeDto body);
-    MenuTypeDto deleteBussById(Integer id);
+    MenuTypeDto getMenuTypeById(Integer id);
+    MenuTypeDto saveMenuType(MenuTypeDto body);
+    MenuTypeDto updateMenuType1(MenuTypeDto body);
+    MenuTypeDto updateMenuType2(MenuTypeDto body);
+    MenuTypeDto deleteMenuTypeById(Integer id);
 
 }

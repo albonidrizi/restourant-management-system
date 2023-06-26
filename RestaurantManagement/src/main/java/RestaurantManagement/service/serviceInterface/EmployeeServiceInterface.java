@@ -6,11 +6,11 @@ import RestaurantManagement.dto.EmployeeDto;
 import java.util.List;
 
 public interface EmployeeServiceInterface {
-    List<EmployeeDto> getAllBus();
-    EmployeeDto getBussById(Integer id);
-    EmployeeDto saveBuss(EmployeeDto body);
-    EmployeeDto updateBuss1(EmployeeDto body);
-    EmployeeDto updateBuss2(EmployeeDto body);
-    EmployeeDto deleteBussById(Integer id);
+    List<EmployeeDto> getAllEmployee();
+    EmployeeDto getEmployeeById(Integer id);
+    EmployeeDto saveEmployee(EmployeeDto body);
+    EmployeeDto updateEmployee1(EmployeeDto body);
+    EmployeeDto updateEmployee2(EmployeeDto body);
+    EmployeeDto deleteEmployeeById(Integer id);
 
 }

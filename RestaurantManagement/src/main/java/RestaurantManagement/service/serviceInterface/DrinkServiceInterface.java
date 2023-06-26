@@ -7,10 +7,10 @@ import java.util.List;
 
 public interface DrinkServiceInterface {
 
-    List<DrinkDto> getAllBus();
-    DrinkDto getBussById(Integer id);
-    DrinkDto saveBuss(DrinkDto body);
-    DrinkDto updateBuss1(DrinkDto body);
-    DrinkDto updateBuss2(DrinkDto body);
-    DrinkDto deleteBussById(Integer id);
+    List<DrinkDto> getAllDrink();
+    DrinkDto getDrinkById(Integer id);
+    DrinkDto saveDrink(DrinkDto body);
+    DrinkDto updateDrink1(DrinkDto body);
+    DrinkDto updateDrink2(DrinkDto body);
+    DrinkDto deleteDrinkById(Integer id);
 }

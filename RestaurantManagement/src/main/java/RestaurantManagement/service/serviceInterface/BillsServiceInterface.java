@@ -1,15 +1,21 @@
 package RestaurantManagement.service.serviceInterface;
 
 import RestaurantManagement.dto.BillsDto;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 
 public interface BillsServiceInterface {
 
-    List<BillsDto> getAllBus();
-    BillsDto getBussById(Integer id);
-    BillsDto saveBuss(BillsDto body);
-    BillsDto updateBuss1(BillsDto body);
-    BillsDto updateBuss2(BillsDto body);
-    BillsDto deleteBussById(Integer id);
+    List<BillsDto> getAllBills();
+    BillsDto getBillsById(Integer id);
+    BillsDto saveBills(BillsDto body);
+    BillsDto updateBills1(BillsDto body);
+    BillsDto updateBills2(BillsDto body);
+    BillsDto deleteBillsById(Integer id);
+
+    Page<BillsDto> busFilter(Integer pageSize, Integer pageNumber, String sort, Boolean isAscending,
+                             String bill_no);
+
+    Page<BillsDto> BillsFilter(Integer pageSize, Integer pageNumber, String sort, Boolean isAscending, String bill_no);
 }

@@ -5,10 +5,10 @@ import RestaurantManagement.dto.TotalBillsDto;
 import java.util.List;
 
 public interface TotalBillsServiceInterface {
-    List<TotalBillsDto> getAllBus();
-    TotalBillsDto getBussById(Integer id);
-    TotalBillsDto saveBuss(TotalBillsDto body);
-    TotalBillsDto updateBuss1(TotalBillsDto body);
-    TotalBillsDto updateBuss2(TotalBillsDto body);
-    TotalBillsDto deleteBussById(Integer id);
+    List<TotalBillsDto> getAllTotalBills();
+    TotalBillsDto getTotalBillsById(Integer id);
+    TotalBillsDto saveTotalBills(TotalBillsDto body);
+    TotalBillsDto updateTotalBills1(TotalBillsDto body);
+    TotalBillsDto updateTotalBills2(TotalBillsDto body);
+    TotalBillsDto deleteTotalBillsById(Integer id);
 }

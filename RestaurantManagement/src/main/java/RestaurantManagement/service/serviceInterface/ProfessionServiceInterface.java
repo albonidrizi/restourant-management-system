@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface ProfessionServiceInterface {
     List<ProfessionDto> getAllBus();
-    ProfessionDto getBussById(Integer id);
-    ProfessionDto saveBuss(ProfessionDto body);
-    ProfessionDto updateBuss1(ProfessionDto body);
-    ProfessionDto updateBuss2(ProfessionDto body);
-    ProfessionDto deleteBussById(Integer id);
+    ProfessionDto getProfessionById(Integer id);
+    ProfessionDto saveProfession(ProfessionDto body);
+    ProfessionDto updateProfession1(ProfessionDto body);
+    ProfessionDto updateProfession2(ProfessionDto body);
+    ProfessionDto deleteProfessionById(Integer id);
 }
