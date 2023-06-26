@@ -18,47 +18,47 @@ public class BillsController {
     private BillsServiceInterface service;
 
 
-    @GetMapping("/getAllBuss")
+    @GetMapping("/getAllBills")
     private List<BillsDto> getAllBills() {
         return service.getAllBills();
     }
 
-    @GetMapping("/getBussById")
+    @GetMapping("/getBillsById")
     public BillsDto getBillsById(@Validated @RequestParam(name = "bussId") Integer id) {
         return service.getBillsById(id);
     }
 
-    @GetMapping("/getBussByID/{id}")
+    @GetMapping("/getBillsByID/{id}")
     public BillsDto getBillsByID(@Validated @PathVariable("id") Integer id) {
         return service.getBillsById(id);
     }
 
 
-    @PostMapping("/createBuss")
+    @PostMapping("/createBills")
     public BillsDto saveBills(@Validated @RequestBody BillsDto body) {
         return service.saveBills(body);
     }
 
 
-    @PutMapping("/updateBuss1")
+    @PutMapping("/updateBills1")
     public BillsDto updateBill1(@Validated @RequestBody BillsDto body) {
         return service.updateBills1(body);
     }
 
 
-    @PatchMapping("/UpdateBuss2")
+    @PatchMapping("/UpdateBills2")
     public BillsDto updateBill2(@Validated @RequestBody BillsDto body) {
         return service.updateBills2(body);
     }
 
 
-    @DeleteMapping("/deleteBuss")
+    @DeleteMapping("/deleteBills")
     public BillsDto deleteBillsById(@Validated @RequestParam(name = "busId") Integer id) {
         return service.deleteBillsById(id);
     }
 
 
-    @DeleteMapping("/deletebuss/{id}")
+    @DeleteMapping("/deleteBills/{id}")
     public BillsDto deleteBillsByID(@Validated @PathVariable("id") Integer id) {
         return service.deleteBillsById(id);
     }
