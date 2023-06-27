@@ -18,4 +18,6 @@ public interface BillsServiceInterface {
                              String bill_no);
 
     Page<BillsDto> BillsFilter(Integer pageSize, Integer pageNumber, String sort, Boolean isAscending, String bill_no);
+
+    Page<BillsDto> billsFilter(Integer pageSize, Integer pageNumber, String sort, Boolean isAscending, int billNo);
 }

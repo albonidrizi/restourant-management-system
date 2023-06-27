@@ -1,9 +1,11 @@
 package RestaurantManagement.controller;
 
+import RestaurantManagement.dto.BillsDto;
 import RestaurantManagement.dto.DrinkDto;
 import RestaurantManagement.dto.EmployeeDto;
 import RestaurantManagement.service.serviceInterface.EmployeeServiceInterface;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -59,6 +61,17 @@ public class EmployeeController {
     @DeleteMapping("/deleteEmployee/{id}")
     public EmployeeDto deleteEmployeeByID(@Validated @PathVariable("id") Integer id) {
         return service.deleteEmployeeById(id);
+    }
+
+    @GetMapping("employeesFilter")
+    public Page<EmployeeDto> employeesFilter(@RequestParam Integer pageSize,
+                                             @RequestParam Integer pageNumber,
+                                             @RequestParam String sort,
+                                             @RequestParam Boolean isAscending,
+                                             @RequestParam(name = "name", required = false) String name,
+                                             @RequestParam(name = "address", required = false) String address,
+                                             @RequestParam(name = "professionId", required = false) int professionId) {
+        return service.employeesFilter(pageSize, pageNumber, sort, isAscending, name, address, professionId);
     }
 
 }

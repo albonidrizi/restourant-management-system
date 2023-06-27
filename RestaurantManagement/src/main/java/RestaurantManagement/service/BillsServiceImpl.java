@@ -2,13 +2,15 @@ package RestaurantManagement.service;
 
 import RestaurantManagement.dto.BillsDto;
 import RestaurantManagement.mapper.BillsMapperImpl;
+import RestaurantManagement.model.Bills;
 import RestaurantManagement.repository.BillsRepository;
 import RestaurantManagement.service.serviceInterface.BillsServiceInterface;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
+import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -71,5 +73,25 @@ public class BillsServiceImpl implements BillsServiceInterface {
   @Override
   public Page<BillsDto> BillsFilter(Integer pageSize, Integer pageNumber, String sort, Boolean isAscending, String bill_no) {
     return null;
+  }
+
+  @Override
+  public Page<BillsDto> billsFilter(Integer pageSize, Integer pageNumber, String sort, Boolean isAscending, int billNo) {
+
+    Sort sortingOption = isAscending
+            ? Sort.by(sort).ascending()
+            : Sort.by(sort).descending();
+
+    Pageable pageable = PageRequest.of(pageNumber, pageSize, sortingOption);
+
+    List<Bills> billsPage = repository.searchBills(billNo, pageable);
+
+    List<BillsDto> list = new ArrayList<>();
+    Integer count = repository.countBills(billNo);
+
+    for (Bills b : billsPage)
+      list.add(mapper.toDto(b));
+
+    return new PageImpl<>(list,pageable,count);
   }
 }

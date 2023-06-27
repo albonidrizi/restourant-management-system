@@ -24,7 +24,7 @@ public class BillsController {
     }
 
     @GetMapping("/getBillsById")
-    public BillsDto getBillsById(@Validated @RequestParam(name = "bussId") Integer id) {
+    public BillsDto getBillsById(@Validated @RequestParam(name = "billId") Integer id) {
         return service.getBillsById(id);
     }
 
@@ -53,7 +53,7 @@ public class BillsController {
 
 
     @DeleteMapping("/deleteBills")
-    public BillsDto deleteBillsById(@Validated @RequestParam(name = "busId") Integer id) {
+    public BillsDto deleteBillsById(@Validated @RequestParam(name = "billId") Integer id) {
         return service.deleteBillsById(id);
     }
 
@@ -63,4 +63,11 @@ public class BillsController {
         return service.deleteBillsById(id);
     }
 
+    @GetMapping("billsFilter")
+    public Page<BillsDto> billsFilter(@RequestParam Integer pageSize,
+                                   @RequestParam Integer pageNumber,
+                                   @RequestParam String sort, Boolean isAscending,
+                                   @RequestParam(name = "billNo", required = false) String billNo) {
+        return service.busFilter(pageSize, pageNumber, sort, isAscending, billNo);
+    }
 }

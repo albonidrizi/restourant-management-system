@@ -5,6 +5,7 @@ import RestaurantManagement.dto.DrinkDto;
 import RestaurantManagement.service.serviceInterface.BillsServiceInterface;
 import RestaurantManagement.service.serviceInterface.DrinkServiceInterface;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -55,14 +56,23 @@ public class DrinkController {
 
 
     @DeleteMapping("/deleteDrink")
-    public DrinkDto deleteBillsById(@Validated @RequestParam(name = "drinkId") Integer id) {
+    public DrinkDto deleteDrinkById(@Validated @RequestParam(name = "drinkId") Integer id) {
         return service.deleteDrinkById(id);
     }
 
 
-    @DeleteMapping("/deletebuss/{id}")
-    public DrinkDto deleteBillsByID(@Validated @PathVariable("id") Integer id) {
+    @DeleteMapping("/deletedrink/{id}")
+    public DrinkDto deleteDrinkByID(@Validated @PathVariable("id") Integer id) {
         return service.deleteDrinkById(id);
+    }
+
+    @GetMapping("drinksFilter")
+    public Page<DrinkDto> drinksFilter(@RequestParam Integer pageSize,
+                                   @RequestParam Integer pageNumber,
+                                   @RequestParam String sort, Boolean isAscending,
+                                   @RequestParam(name = "name", required = false) String name,
+                                   @RequestParam(name = "codeId", required = false) int codeId) {
+        return service.drinksFilter(pageSize, pageNumber, sort, isAscending, name, codeId);
     }
 
 }
