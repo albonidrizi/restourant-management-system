@@ -17,7 +17,6 @@ The Restaurant Management System is a web application designed to streamline the
 
 - **Backend**: Spring Boot
 - **Database**: PostgreSQL
-- **Frontend**: [Optional] If you have a frontend, describe it here.
 
 ## Setup
 
